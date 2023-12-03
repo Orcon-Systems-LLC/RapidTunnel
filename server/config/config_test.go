@@ -6,9 +6,9 @@ import (
 )
 
 func TestConfig_Load(t *testing.T) {
-	t.Setenv("JPRQ_DOMAIN", "jprq.site")
-	t.Setenv("JPRQ_TLS_KEY", "key.pem")
-	t.Setenv("JPRQ_TLS_CERT", "cert.pem")
+	t.Setenv("RAPIDTUNNEL_DOMAIN", "jprq.site")
+	t.Setenv("RAPIDTUNNEL_TLS_KEY", "key.pem")
+	t.Setenv("RAPIDTUNNEL_TLS_CERT", "cert.pem")
 
 	config := &Config{}
 	err := config.Load()
@@ -25,17 +25,17 @@ func TestConfig_loadEmptyEnv(t *testing.T) {
 		ErrText string
 	}{
 		{
-			"JPRQ_DOMAIN",
+			"RAPIDTUNNEL_DOMAIN",
 			"jprq.site",
 			"jprq domain env is not set",
 		},
 		{
-			"JPRQ_TLS_KEY",
+			"RAPIDTUNNEL_TLS_KEY",
 			"example.key",
 			"TLS key/cert file is missing",
 		},
 		{
-			"JPRQ_TLS_CERT",
+			"RAPIDTUNNEL_TLS_CERT",
 			"example.cert",
 			"TLS key/cert file is missing",
 		},
