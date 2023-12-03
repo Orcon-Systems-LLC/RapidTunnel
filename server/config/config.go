@@ -25,15 +25,15 @@ func (c *Config) Load() error {
 	c.PublicServerPort = 80
 	c.EventServerPort = 4321
 	c.PublicServerTLSPort = 443
-	c.DomainName = os.Getenv("JPRQ_DOMAIN")
-	c.TLSKeyFile = os.Getenv("JPRQ_TLS_KEY")
-	c.TLSCertFile = os.Getenv("JPRQ_TLS_CERT")
+	c.DomainName = os.Getenv("RAPIDTUNNEL_DOMAIN")
+	c.TLSKeyFile = os.Getenv("RAPIDTUNNEL_TLS_KEY")
+	c.TLSCertFile = os.Getenv("RAPIDTUNNEL_TLS_CERT")
 	c.GithubClientID = os.Getenv("GITHUB_CLIENT_ID")
 	c.GithubClientSecret = os.Getenv("GITHUB_CLIENT_SECRET")
 	c.AllowedUsersFile = "/etc/jprq/allowed-users.csv"
 
 	if c.DomainName == "" {
-		return errors.New("jprq domain env is not set")
+		return errors.New("RAPIDTUNNEL domain env is not set")
 	}
 	if c.TLSKeyFile == "" || c.TLSCertFile == "" {
 		return errors.New("TLS key/cert file is missing")
